@@ -5,5 +5,8 @@ export default defineConfig({
   plugins: [react()],
   css: {
     transformer: 'postcss'
+  },
+  build: {
+    cssMinify: false
   }
 })
