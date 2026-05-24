@@ -1,6 +1,26 @@
 import "./App.css";
 import { useState } from "react";
-import Product from "./components/Product";
+function Product({ name, score, price, link, platform, isBest, in_stock }) {
+  const available = String(in_stock).toLowerCase() === "true" || in_stock === 1;
+  return (
+    <div className={isBest ? "card best-card" : "card"}>
+      {!available && <span className="out-of-stock-badge">Out of Stock</span>}
+      <div className="image-wrapper">
+        <span className="platform-name">{platform}</span>
+      </div>
+      <div className="card-content">
+        <p className="product-title">{name}</p>
+        <div className="product-meta">
+          {price && <span className="price">Rs.{Number(price).toLocaleString("en-IN")}</span>}
+          {score && <span className="rating">Score: {score}/100</span>}
+        </div>
+        <a href={link} target="_blank" rel="noopener noreferrer" className={available ? "btn" : "btn disabled"}>
+          {available ? "View Deal" : "Check Availability"}
+        </a>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   const [query, setQuery] = useState("");
