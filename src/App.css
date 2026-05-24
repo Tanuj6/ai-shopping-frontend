@@ -15,6 +15,8 @@
   --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.35);
   --glow: 0 8px 30px rgba(245, 158, 11, 0.18);
 
+}
+
 /* 🌍 GLOBAL */
 * {
   box-sizing: border-box;
